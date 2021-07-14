@@ -12,6 +12,9 @@ namespace pet_hotel
         [Required]
         public string name {get; set;}
 
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string emailAddress {get; set;}
 
         // public int petCount {get; set;}

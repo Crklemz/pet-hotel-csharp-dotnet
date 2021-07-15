@@ -25,8 +25,8 @@ namespace pet_hotel.Controllers
 
         [HttpGet]
         public IEnumerable<PetOwner> GetAllPetOwners() {
-            var owners = _context.PetOwners.ToList();
-            return owners;
+            return _context.PetOwners.Include(pet => pet.pets).ToList();
+           
         }
 
         [HttpGet(("{id}"))]

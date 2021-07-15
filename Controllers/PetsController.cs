@@ -52,6 +52,32 @@ namespace pet_hotel.Controllers
             return NoContent();
         }
 
+        [HttpPut("{id}/checkin")]
+        public IActionResult CheckIn(int id) {
+            Pet pet = _context.Pets
+            .SingleOrDefault( p => p.id == id);
+
+            if(pet == null) return NotFound();
+
+            pet.checkedInAt = DateTime.UtcNow;
+            _context.Update(pet);
+            _context.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPut("{id}/checkout")]
+        public IActionResult CheckOut(int id) {
+            Pet pet = _context.Pets
+            .SingleOrDefault( p => p.id == id);
+
+            if(pet == null) return NotFound();
+
+            pet.checkedInAt = null;
+            _context.Update(pet);
+            _context.SaveChanges();
+            return Ok();
+        }
+
         // [HttpGet]
         // [Route("test")]
         // public IEnumerable<Pet> GetPets() {

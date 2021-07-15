@@ -47,5 +47,17 @@ namespace pet_hotel.Controllers
 
             return NoContent();
         }
+
+        // [HttpPut("{id}")]
+        // public IActionResult EditOwner(int id) {
+        //     PetOwner ownerToUpdate = _context.PetOwners.Find(id);
+        //     if (ownerToUpdate == null) return NotFound();
+
+
+        //     _context.Update(ownerToUpdate);
+        //     _context.SaveChanges();
+
+        //     return Ok();
+        // }
     }
 }

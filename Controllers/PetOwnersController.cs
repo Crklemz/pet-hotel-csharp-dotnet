@@ -29,6 +29,15 @@ namespace pet_hotel.Controllers
             return owners;
         }
 
+        [HttpGet(("{id}"))]
+        public IActionResult GetById(int id) {
+            PetOwner owner = _context.PetOwners
+                .Include(o => o.pets)
+                .SingleOrDefault( owner => owner.id == id);
+            if (owner == null) return NotFound();
+            return Ok(owner);
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] PetOwner owner) {
             _context.Add(owner);
@@ -48,16 +57,14 @@ namespace pet_hotel.Controllers
             return NoContent();
         }
 
-        // [HttpPut("{id}")]
-        // public IActionResult EditOwner(int id) {
-        //     PetOwner ownerToUpdate = _context.PetOwners.Find(id);
-        //     if (ownerToUpdate == null) return NotFound();
+        [HttpPut("{id}")]
+        public IActionResult EditOwner(int id, [FromBody] PetOwner owner) {
 
 
-        //     _context.Update(ownerToUpdate);
-        //     _context.SaveChanges();
+            _context.Update(owner);
+            _context.SaveChanges();
 
-        //     return Ok();
-        // }
+            return Ok(owner);
+        }
     }
 }

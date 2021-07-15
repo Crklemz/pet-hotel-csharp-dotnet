@@ -35,7 +35,7 @@ namespace pet_hotel.Controllers
 
         [HttpPost]
         public IActionResult Post([FromBody] Pet pet) {
-            _context.Add(pet);
+            _context.Pets.Add(pet);
             _context.SaveChanges();
 
             return CreatedAtAction(nameof(GetAllPets), pet);
@@ -55,14 +55,14 @@ namespace pet_hotel.Controllers
         [HttpPut("{id}/checkin")]
         public IActionResult CheckIn(int id) {
             Pet pet = _context.Pets
-            .SingleOrDefault( p => p.id == id);
+            .SingleOrDefault( p => p.id == id); // Why SingleOrDefault necessary?
 
             if(pet == null) return NotFound();
 
             pet.checkedInAt = DateTime.UtcNow;
             _context.Update(pet);
             _context.SaveChanges();
-            return Ok();
+            return Ok(pet);
         }
 
         [HttpPut("{id}/checkout")]
@@ -75,7 +75,17 @@ namespace pet_hotel.Controllers
             pet.checkedInAt = null;
             _context.Update(pet);
             _context.SaveChanges();
-            return Ok();
+            return Ok(pet);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult EditPet(int id, [FromBody] Pet pet) {
+
+
+            _context.Update(pet);
+            _context.SaveChanges();
+
+            return Ok(pet);
         }
 
         // [HttpGet]

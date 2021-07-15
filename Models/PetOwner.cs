@@ -17,7 +17,17 @@ namespace pet_hotel
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string emailAddress {get; set;}
 
-        // public int petCount {get; set;}
+        [JsonIgnore]
+        public ICollection<Pet> pets {get; set;}
+
+        [NotMapped]
+        // public int petCount {get;} --> throws a 0 on the DOM - why? Ask in class
+        public int petCount {
+            get {
+                return (pets == null ? 0 : pets.Count);
+            }
+        }
+
 
     }
 }

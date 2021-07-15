@@ -26,14 +26,14 @@ Your job is to build the backend for the Pet Hotel! The React App is
 ready to go. For base mode you do not need to update the React App at all. Simply `cd` into the `ClientApp/` folder, run `npm install`, and 
 `npm start` to run the client application. Build the HTTP API until all of the functionality of the Client App is working:
 
-   - All 11 jest tests are passing (see below)
-   - Loading the page shows Pets and Pet Owners in the table.
-   - User can add a new Pet Owner (and see error validations).
-   - User can add new Pets, associated with pet owners (and see error validations).
-   - User can check in a pet and see the timestamp on the table.
-   - User can check out a pet.
-   - User can delete pets.
-   - User can delete pet owners.
+   [] All 11 jest tests are passing (see below)
+   [] Loading the page shows Pets and Pet Owners in the table.
+   [x] User can add a new Pet Owner (and see error validations).
+   [x] User can add new Pets, associated with pet owners (and see error validations).
+   [x] User can check in a pet and see the timestamp on the table.
+   [x] User can check out a pet.
+   [x] User can delete pets.
+   [x] User can delete pet owners.
 
 Your general approach should be like so:
 

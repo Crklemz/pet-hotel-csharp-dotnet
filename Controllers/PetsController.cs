@@ -35,6 +35,7 @@ namespace pet_hotel.Controllers
 
         [HttpPost]
         public IActionResult Post([FromBody] Pet pet) {
+            PetOwner owner = _context.PetOwners.SingleOrDefault(owner => owner.id == pet.petOwnerid);
             _context.Pets.Add(pet);
             _context.SaveChanges();
 

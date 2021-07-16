@@ -27,7 +27,7 @@ ready to go. For base mode you do not need to update the React App at all. Simpl
 `npm start` to run the client application. Build the HTTP API until all of the functionality of the Client App is working:
 
    [] All 11 jest tests are passing (see below)
-   [] Loading the page shows Pets and Pet Owners in the table.
+   [x] Loading the page shows Pets and Pet Owners in the table.
    [x] User can add a new Pet Owner (and see error validations).
    [x] User can add new Pets, associated with pet owners (and see error validations).
    [x] User can check in a pet and see the timestamp on the table.
